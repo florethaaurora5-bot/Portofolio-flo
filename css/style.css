@@ -1,0 +1,152 @@
+ <style>
+        :root {
+            --aero-blue-start: #1b82ea;
+            --aero-blue-end: #0052a5;
+            --aero-green-start: #2ecc71;
+            --aero-green-end: #10b981;
+            --aero-glass-bg: rgba(255, 255, 255, 0.45);
+            --aero-glass-border: rgba(255, 255, 255, 0.85);
+            --aero-dark-glass: rgba(15, 30, 55, 0.65);
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Plus Jakarta Sans', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 30%, #a8e6cf 70%, #d4fc79 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Frutiger Aero Style */
+        .aero-glass {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.65) 0%, rgba(240, 248, 255, 0.4) 100%);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 32px 0 rgba(0, 100, 180, 0.18), 
+                        inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+                        inset 0 -1px 3px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .aero-card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(230, 245, 255, 0.6) 100%);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            box-shadow: 0 8px 24px -4px rgba(12, 74, 110, 0.12),
+                        inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .aero-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 16px 32px -4px rgba(14, 116, 144, 0.25),
+                        inset 0 1px 2px 0 rgba(255, 255, 255, 1);
+        }
+
+        /* Windows Vista/7 Style Header Ribbon */
+        .window-header {
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.9) 0%, 
+                rgba(178, 222, 255, 0.7) 45%, 
+                rgba(50, 150, 240, 0.8) 50%, 
+                rgba(15, 110, 210, 0.9) 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+        }
+
+        /* Frutiger Aero Glossy Button */
+        .aero-btn-primary {
+            background: linear-gradient(180deg, #60a5fa 0%, #2563eb 50%, #1d4ed8 51%, #1e40af 100%);
+            border: 1px solid #93c5fd;
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.6), 0 4px 12px rgba(37, 99, 235, 0.35);
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+        }
+
+        .aero-btn-primary:hover {
+            background: linear-gradient(180deg, #93c5fd 0%, #3b82f6 50%, #2563eb 51%, #1d4ed8 100%);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.8), 0 6px 16px rgba(37, 99, 235, 0.45);
+            transform: translateY(-1px);
+        }
+
+        .aero-btn-green {
+            background: linear-gradient(180deg, #4ade80 0%, #16a34a 50%, #15803d 51%, #166534 100%);
+            border: 1px solid #86efac;
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.6), 0 4px 12px rgba(22, 163, 74, 0.35);
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+            transition: all 0.2s ease;
+        }
+
+        .aero-btn-green:hover {
+            background: linear-gradient(180deg, #86efac 0%, #22c55e 50%, #16a34a 51%, #15803d 100%);
+            box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.8), 0 6px 16px rgba(22, 163, 74, 0.45);
+            transform: translateY(-1px);
+        }
+
+        /* Gloss Overlay */
+        .gloss-overlay {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gloss-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 45%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        /* Water Droplet Floating Animations */
+        @keyframes floatBubble {
+            0% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-15px) rotate(3deg); opacity: 0.9; }
+            100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+        }
+
+        .animated-bubble {
+            animation: floatBubble 6s ease-in-out infinite;
+        }
+
+        /* OS Navigation Tabs */
+        .nav-tab {
+            transition: all 0.2s ease;
+            position: relative;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(210, 235, 255, 0.3) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(180deg, #3b82f6 0%, #1d4ed8 100%);
+            color: white;
+            border-color: #93c5fd;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 4px 10px rgba(37, 99, 235, 0.3);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(186, 230, 253, 0.8) 100%);
+            border-color: rgba(56, 189, 248, 0.8);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(200, 230, 255, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #60a5fa, #2563eb);
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+    </style>

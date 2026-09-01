@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Various.Dev | Grade XII Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts: Inter & Segoe UI style -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+   
+</head>
+
+
+<body class="flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- Background Frutiger Aero Orbs & Water Droplets -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="animated-bubble absolute top-10 left-10 w-72 h-72 bg-gradient-to-tr from-cyan-400/30 to-blue-500/20 rounded-full blur-2xl"></div>
+        <div class="animated-bubble absolute top-1/3 right-12 w-96 h-96 bg-gradient-to-br from-emerald-300/30 to-teal-500/20 rounded-full blur-3xl" style="animation-delay: -2s;"></div>
+        <div class="animated-bubble absolute bottom-10 left-1/4 w-80 h-80 bg-gradient-to-r from-blue-300/30 to-indigo-400/20 rounded-full blur-2xl" style="animation-delay: -4s;"></div>
+        <!-- Glossy Lens Flare Line -->
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-75"></div>
+    </div>
+
+    <!-- MAIN CONTAINER - WINDOW XP / VISTA FRAME -->
+    <div class="relative z-10 container mx-auto px-2 sm:px-4 py-4 md:py-8 max-w-7xl flex-grow flex flex-col">
+        
+        <!-- HEADER & NAVBAR (OS Window Style) -->
+        <header class="aero-glass rounded-2xl overflow-hidden mb-6 shadow-2xl border border-white/80">
+            <!-- Top Operating System Titlebar -->
+            <div class="window-header px-4 py-2 flex items-center justify-between text-xs font-semibold text-slate-800 tracking-wide">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-desktop text-blue-700"></i>
+                    <span class="text-slate-900 font-bold">Various.Dev Portfolio OS v2.0 - [Grade XII]</span>
+                </div>
+                <!-- Classic Windows Aero Control Buttons -->
+                <div class="flex items-center space-x-1.5">
+                    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Minimize" class="w-6 h-5 rounded bg-gradient-to-b from-gray-100 to-gray-300 hover:from-blue-200 hover:to-blue-400 border border-slate-400/60 flex items-center justify-center text-slate-700 shadow-sm text-xs font-bold">_</button>
+                    <button onclick="toggleFullScreen()" title="Maximize" class="w-6 h-5 rounded bg-gradient-to-b from-gray-100 to-gray-300 hover:from-blue-200 hover:to-blue-400 border border-slate-400/60 flex items-center justify-center text-slate-700 shadow-sm text-[10px] font-bold">☐</button>
+                    <button onclick="alert('Welcome to Alex Pratama\'s Portfolio Website!')" title="Close" class="w-6 h-5 rounded bg-gradient-to-b from-red-400 to-red-600 hover:from-red-300 hover:to-red-500 border border-red-700 flex items-center justify-center text-white shadow-sm text-xs font-bold">✕</button>
+                </div>
+            </div>
+
+            <!-- Brand Navigation Header -->
+            <div class="px-4 sm:px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4 border-b border-white/50 bg-white/30 backdrop-blur-md">
+                <!-- Brand / Logo -->
+                <a href="#home" onclick="switchTab('home')" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 via-cyan-400 to-emerald-400 p-0.5 shadow-lg group-hover:scale-105 transition-transform gloss-overlay">
+                        <div class="w-full h-full bg-white/90 rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-code text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-emerald-600 text-xl"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent drop-shadow-sm">
+                            Various.Dev
+                        </span>
+                        <span class="block text-xs font-semibold text-sky-800 tracking-wider uppercase">
+                            Portfolio Floretha
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="w-full md:w-auto overflow-x-auto pb-2 md:pb-0">
+                    <ul class="flex items-center space-x-1 sm:space-x-2 min-w-max">
+                        <li>
+                            <button onclick="switchTab('home')" id="nav-home" class="nav-tab active px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-house"></i> Home
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="switchTab('about')" id="nav-about" class="nav-tab text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-user"></i> About Me
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="switchTab('networks')" id="nav-networks" class="nav-tab text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-network-wired"></i> Networks
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="switchTab('iot')" id="nav-iot" class="nav-tab text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-robot"></i> IoT & Arduino
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="switchTab('projects')" id="nav-projects" class="nav-tab text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-lightbulb"></i> Projects
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="switchTab('contact')" id="nav-contact" class="nav-tab text-slate-700 px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm">
+                                <i class="fa-solid fa-envelope"></i> Contact
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- TAB CONTENTS -->
+        <main class="flex-grow">
+            <!-- 1. HOME TAB (index.html equivalent) -->
+            <section id="tab-home" class="tab-content block space-y-8 animate-fade-in">
+                
+                <!-- Hero / Banner Section -->
+                <div class="aero-glass rounded-3xl p-6 sm:p-10 relative overflow-hidden gloss-overlay border border-white/90">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        
+                        <!-- Profile Photo Card -->
+                        <div class="md:col-span-4 flex justify-center">
+                            <div class="relative group">
+                                <!-- Glowing aero frame -->
+                                <div class="absolute -inset-2 bg-gradient-to-r from-blue-400 via-teal-300 to-emerald-400 rounded-3xl blur-lg opacity-70 group-hover:opacity-100 transition duration-500"></div>
+                                <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden p-1 bg-gradient-to-b from-white via-sky-100 to-blue-200 shadow-2xl border-2 border-white">
+                                    <img src="image/Aero.jpeg"
+                                        class="w-full h-full object-cover rounded-xl shadow-inner"
+                                        onerror="this.src='image/Aero.jpeg'">
+                                    <div class="absolute bottom-2 right-2 bg-emerald-500 border-2 border-white w-5 h-5 rounded-full shadow-md" title="Online Status"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Greeting & Information -->
+                        <div class="md:col-span-8 text-center md:text-left space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-blue-500/20 to-teal-500/20 border border-blue-400/40 text-blue-900 font-semibold text-xs sm:text-sm backdrop-blur-sm">
+                                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                Welcome to my Digital Portfolio
+                            </div>
+
+                            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                                Hello! I'm <span class="bg-gradient-to-r from-blue-700 via-teal-600 to-emerald-600 bg-clip-text text-transparent">Floretha Aurora Levina</span>
+                            </h1>
+
+                            <p class="text-base sm:text-xl font-medium text-slate-700">
+                                Grade XII Student &bull; <span class="text-blue-800 font-semibold">Common Artist / Imagineer Sky</span>
+                            </p>
+
+                            <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
+                                Welcome to the Frutiger Aero Portfolio Website. With the 2000s old windows theme, I created the beautiful promise future where nature & technology merge together and create a peaceful city! <3
+                            </p>
+
+                            <!-- Call-to-Action Buttons -->
+                            <div class="pt-2 flex flex-wrap justify-center md:justify-start gap-4">
+                                <button onclick="switchTab('projects')" class="aero-btn-primary px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg">
+                                    <i class="fa-solid fa-rocket"></i> View My Projects
+                                </button>
+                                <button onclick="switchTab('contact')" class="aero-btn-green px-6 py-3 rounded-xl font-bold text-sm flex items-center gap-2 shadow-lg">
+                                    <i class="fa-solid fa-paper-plane"></i> Contact Me
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Summary Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-gears text-blue-600"></i> Core Skills Summary
+                        </h2>
+                        <span class="text-xs font-semibold text-sky-800 bg-sky-100/80 px-3 py-1 rounded-full border border-sky-300">Class XII Mastery</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+                        <!-- Skill Card 1 -->
+                        <div class="aero-card p-5 text-center flex flex-col items-center justify-between space-y-3">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-orange-400 to-amber-300 flex items-center justify-center text-white text-2xl shadow-md border border-white gloss-overlay">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Graphic Design</h3>
+                                <p class="text-xs text-slate-500 mt-1">Fine & Applied arts</p>
+                            </div>
+                            <span class="text-xs font-bold text-purple-700 bg-purple-100 px-2.5 py-1 rounded-md w-full">Mastery</span>
+                        </div>
+
+                        <!-- Skill Card 2 -->
+                        <div class="aero-card p-5 text-center flex flex-col items-center justify-between space-y-3">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-500 to-cyan-300 flex items-center justify-center text-white text-2xl shadow-md border border-white gloss-overlay">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Writing & Storytelling</h3>
+                                <p class="text-xs text-slate-500 mt-1">Fantasy, Adventure, Romance, etc.</p>
+                            </div>
+                            <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md w-full">Advanced</span>
+                        </div>
+
+                        <!-- Skill Card 3 -->
+                        <div class="aero-card p-5 text-center flex flex-col items-center justify-between space-y-3">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-300 flex items-center justify-center text-white text-2xl shadow-md border border-white gloss-overlay">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Basic Networking</h3>
+                                <p class="text-xs text-slate-500 mt-1">IP Addressing & Cisco Packet Tracer</p>
+                            </div>
+                            <span class="text-xs font-bold text-teal-700 bg-teal-100 px-2.5 py-1 rounded-md w-full">Intermediate</span>
+                        </div>
+
+                        <!-- Skill Card 4 -->
+                        <div class="aero-card p-5 text-center flex flex-col items-center justify-between space-y-3">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-400 flex items-center justify-center text-white text-2xl shadow-md border border-white gloss-overlay">
+                                <i class="fa-solid fa-puzzle-piece"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Problem Solving</h3>
+                                <p class="text-xs text-slate-500 mt-1">Algorithms & Logic Design</p>
+                            </div>
+                            <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md w-full">Advanced</span>
+                        </div>
+
+                        <!-- Skill Card 5 -->
+                        <div class="aero-card p-5 text-center flex flex-col items-center justify-between space-y-3">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-sky-500 to-emerald-400 flex items-center justify-center text-white text-2xl shadow-md border border-white gloss-overlay">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Basic Programming</h3>
+                                <p class="text-xs text-slate-500 mt-1">JavaScript, HTML, CSS, & Phyton.</p>
+                            </div>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-md w-full">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. ABOUT ME TAB (pages/tentang.html equivalent) -->
+            <section id="tab-about" class="tab-content hidden space-y-8 animate-fade-in">
+                <!-- Header Title -->
+                <div class="aero-glass rounded-2xl p-6 border border-white/80">
+                    <h2 class="text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                        <i class="fa-solid fa-address-card text-blue-600"></i> About Me & Bio
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Complete student profile, educational journey, and future academic interests.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Bio Table & Personal Details Card -->
+                    <div class="lg:col-span-7 aero-card p-6 space-y-6">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-user-check text-emerald-600"></i> Personal Biography
+                            </h3>
+                            <span class="text-xs font-semibold px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-md">Verified Student</span>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-sm text-slate-700">
+                                <tbody class="divide-y divide-sky-100">
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900 w-1/3">Full Name</td>
+                                        <td class="py-3 text-slate-700">Floretha Aurora Levina</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900">NISN / Student ID</td>
+                                        <td class="py-3 font-mono text-slate-700">0081967299</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900">Class Grade</td>
+                                        <td class="py-3 text-slate-700">Class XII Science 5</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900">School</td>
+                                        <td class="py-3 text-slate-700">State Academic High School 2 Mojokerto (SMAN 2 Mojokerto)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900">Absend</td>
+                                        <td class="py-3 text-slate-700">12</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 font-semibold text-slate-900">Future Study Goal</td>
+                                        <td class="py-3 text-blue-800 font-semibold">B.Sc. in Computer Science / Artificial Intelligence. ITS (Institut Teknologi Sepuluh Nopember)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-gradient-to-r from-blue-50 to-teal-50 border border-sky-200 text-xs text-slate-700 leading-relaxed">
+                            <i class="fa-solid fa-quote-left text-sky-400 text-base mr-1"></i>
+                            Rise and shine! we're really appreciate any bussiness you've been made! ;)
+                        </div>
+                    </div>
+
+                    <!-- Education & Future Focus Card -->
+                    <div class="lg:col-span-5 aero-card p-6 space-y-6">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-graduation-cap text-blue-600"></i> Education Timeline
+                            </h3>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Education Item 1 -->
+                            <div class="relative pl-6 border-l-2 border-blue-400 space-y-1">
+                                <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-blue-600 border-2 border-white"></div>
+                                <span class="text-xs font-bold text-blue-700">2024 - Present (Grade XII)</span>
+                                <h4 class="font-bold text-slate-800 text-sm">SMA Negeri 2 Kota Mojokerto</h4>
+                                <p class="text-xs text-slate-600">Future Informatic</p>
+                            </div>
+
+                            <!-- Education Item 2 -->
+                            <div class="relative pl-6 border-l-2 border-teal-300 space-y-1">
+                                <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-teal-500 border-2 border-white"></div>
+                                <span class="text-xs font-bold text-teal-700">2021 - 2024</span>
+                                <h4 class="font-bold text-slate-800 text-sm">Taruna Nusa Harapan Junior High School</h4>
+                                <p class="text-xs text-slate-600">An ordinary student</p>
+                            </div>
+                        </div>
+
+                        <!-- Future Interests -->
+                        <div class="pt-4 border-t border-sky-200">
+                            <h4 class="font-bold text-slate-800 text-sm mb-3">Target Academic Fields</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-sky-100 text-sky-800 text-xs font-semibold rounded-lg border border-sky-200">Cloud Architecture</span>
+                                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-lg border border-emerald-200">Embedded IoT Systems</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-lg border border-blue-200">Cybersecurity Basics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Activity Gallery Section -->
+                <div class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-2xl font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-images text-emerald-600"></i> Computer Lab Practicum Gallery
+                        </h3>
+                        <span class="text-xs font-semibold text-slate-600">4 Practical Documentation Photos</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Activity Photo 1 -->
+                        <div class="aero-card overflow-hidden group">
+                            <div class="h-44 overflow-hidden relative gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Software Engineering Lab" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/0072CE/FFFFFF?text=Software+Lab'">
+                                <span class="absolute top-2 left-2 bg-blue-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Lab 1</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-slate-800 text-sm">Fullstack Coding Session</h4>
+                                <p class="text-xs text-slate-600 mt-1">Designing responsive front-end layouts and database schemas during RPL practical hours.</p>
+                            </div>
+                        </div>
+
+                        <!-- Activity Photo 2 -->
+                        <div class="aero-card overflow-hidden group">
+                            <div class="h-44 overflow-hidden relative gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Network Rack Configuration" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/10B981/FFFFFF?text=Network+Lab'">
+                                <span class="absolute top-2 left-2 bg-emerald-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Lab 2</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-slate-800 text-sm">LAN Cable Crimping</h4>
+                                <p class="text-xs text-slate-600 mt-1">Assembly and testing of UTP Cat6 Straight and Crossover cables with RJ45 connectors.</p>
+                            </div>
+                        </div>
+
+                        <!-- Activity Photo 3 -->
+                        <div class="aero-card overflow-hidden group">
+                            <div class="h-44 overflow-hidden relative gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Arduino Microcontroller Soldering" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/00A896/FFFFFF?text=Arduino+Lab'">
+                                <span class="absolute top-2 left-2 bg-teal-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Lab 3</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-slate-800 text-sm">Arduino Wiring Lab</h4>
+                                <p class="text-xs text-slate-600 mt-1">Interfacing DHT11 sensors, LCD 16x2 I2C displays, and micro-servo motors on breadboards.</p>
+                            </div>
+                        </div>
+
+                        <!-- Activity Photo 4 -->
+                        <div class="aero-card overflow-hidden group">
+                            <div class="h-44 overflow-hidden relative gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Group Project Review" 
+                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/600x400/2563EB/FFFFFF?text=Teamwork+Lab'">
+                                <span class="absolute top-2 left-2 bg-indigo-600/90 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">Lab 4</span>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-slate-800 text-sm">Class XII Team Code Review</h4>
+                                <p class="text-xs text-slate-600 mt-1">Collaborative project sprint and peer debugging before weekly technical assessment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. COMPUTER NETWORKS TAB (pages/jaringan.html equivalent) -->
+            <section id="tab-networks" class="tab-content hidden space-y-8 animate-fade-in">
+                <!-- Module Header Card -->
+                <div class="aero-glass rounded-2xl p-6 border border-white/80">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-teal-800 bg-teal-100 px-3 py-1 rounded-full">Class XII Syllabus</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900 mt-2 flex items-center gap-3">
+                                <i class="fa-solid fa-network-wired text-teal-600"></i> Computer Networks Module
+                            </h2>
+                            <p class="text-slate-600 text-sm mt-1">IP addressing schemes, Cisco Packet Tracer topology design, and protocol analysis drafts.</p>
+                        </div>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-900 border border-emerald-400 font-semibold px-3 py-1.5 rounded-xl">Status: In Progress</span>
+                    </div>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Draft Card 1 -->
+                    <div class="aero-card p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <span class="text-xs font-bold text-sky-800 bg-sky-100 px-2.5 py-1 rounded">Draft Card #01</span>
+                            <i class="fa-solid fa-sitemap text-xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800">Cisco Packet Tracer Topology Simulation</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Configured a dual-router LAN architecture connecting 3 distinct VLANs (Admin, Student, Lab) utilizing RIPv2 and OSPF routing protocols with NAT gateway rules.
+                        </p>
+
+                        <!-- Visual Diagram Placeholder -->
+                        <div class="p-4 rounded-xl bg-slate-900 text-emerald-400 font-mono text-xs space-y-1 shadow-inner border border-slate-700">
+                            <p class="text-sky-400 font-bold">[Topology Config Draft]</p>
+                            <p>Router# show ip route</p>
+                            <p>R  192.168.10.0/24 [120/1] via 10.0.0.1</p>
+                            <p>C  192.168.20.0/24 is directly connected, GigabitEthernet0/0</p>
+                            <p class="text-slate-400">// Status: Simulation verified without packet loss</p>
+                        </div>
+
+                        <div class="flex items-center justify-between text-xs text-slate-500 pt-2">
+                            <span><i class="fa-regular fa-clock mr-1"></i> Updated Term 1</span>
+                            <span class="text-blue-700 font-semibold">4/4 Nodes Ping Passed</span>
+                        </div>
+                    </div>
+
+                    <!-- Draft Card 2 -->
+                    <div class="aero-card p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <span class="text-xs font-bold text-teal-800 bg-teal-100 px-2.5 py-1 rounded">Draft Card #02</span>
+                            <i class="fa-solid fa-calculator text-xl text-teal-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800">IPv4 Subnetting & Addressing Table</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Detailed calculation for Variable Length Subnet Masking (VLSM) on Class C network `192.168.1.0/24` for optimized host distribution across school departments.
+                        </p>
+
+                        <!-- Table snippet -->
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs">
+                                <thead>
+                                    <tr class="bg-sky-200/50 text-slate-800">
+                                        <th class="p-2">Subnet</th>
+                                        <th class="p-2">Prefix</th>
+                                        <th class="p-2">Usable Host Range</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-sky-100 font-mono text-[11px] text-slate-700">
+                                    <tr>
+                                        <td class="p-2 font-semibold">VLAN 10</td>
+                                        <td class="p-2">/26</td>
+                                        <td class="p-2">192.168.1.1 - 192.168.1.62</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-2 font-semibold">VLAN 20</td>
+                                        <td class="p-2">/27</td>
+                                        <td class="p-2">192.168.1.65 - 192.168.1.94</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="flex items-center justify-between text-xs text-slate-500 pt-2">
+                            <span><i class="fa-regular fa-clock mr-1"></i> Updated Term 1</span>
+                            <span class="text-teal-700 font-semibold">VLSM Strategy Active</span>
+                        </div>
+                    </div>
+
+                    <!-- Draft Card 3 -->
+                    <div class="aero-card p-6 space-y-4 md:col-span-2">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <span class="text-xs font-bold text-indigo-800 bg-indigo-100 px-2.5 py-1 rounded">Draft Card #03</span>
+                            <i class="fa-solid fa-shield-halved text-xl text-indigo-600"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800">Network Protocol & Packet Analysis (Wireshark)</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Analyzing TCP 3-Way Handshake (`SYN`, `SYN-ACK`, `ACK`), DNS resolution queries, and HTTP vs HTTPS payload headers captured during lab testing.
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                            <div class="p-3 rounded-lg bg-white/80 border border-sky-200 text-center">
+                                <p class="text-xs font-bold text-slate-800">DHCP Handshake</p>
+                                <p class="text-[11px] text-slate-500">DORA Protocol Flow</p>
+                            </div>
+                            <div class="p-3 rounded-lg bg-white/80 border border-sky-200 text-center">
+                                <p class="text-xs font-bold text-slate-800">DNS Resolution</p>
+                                <p class="text-[11px] text-slate-500">UDP Port 53 Analysis</p>
+                            </div>
+                            <div class="p-3 rounded-lg bg-white/80 border border-sky-200 text-center">
+                                <p class="text-xs font-bold text-slate-800">Ping Delay Test</p>
+                                <p class="text-[11px] text-slate-500">ICMP RTT &lt; 2ms</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. IOT & ARDUINO TAB (pages/iot-arduino.html equivalent) -->
+            <section id="tab-iot" class="tab-content hidden space-y-8 animate-fade-in">
+                <!-- Module Header Card -->
+                <div class="aero-glass rounded-2xl p-6 border border-white/80">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full">Embedded Hardware</span>
+                            <h2 class="text-3xl font-extrabold text-slate-900 mt-2 flex items-center gap-3">
+                                <i class="fa-solid fa-microchip text-emerald-600"></i> IoT & Arduino Module
+                            </h2>
+                            <p class="text-slate-600 text-sm mt-1">Circuit schematics (Wokwi/Fritzing), microprocessor C/C++ source code, and sensor integration.</p>
+                        </div>
+                        <span class="text-xs bg-blue-500/20 text-blue-900 border border-blue-400 font-semibold px-3 py-1.5 rounded-xl">Hardware Active</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <!-- Draft Card: C++ Microprocessor Code -->
+                    <div class="lg:col-span-7 aero-card p-6 space-y-4">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <span class="text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-1 rounded">C/C++ Code Snippet</span>
+                            <span class="text-xs font-mono text-slate-500">DHT11_Servo_LCD.ino</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800">Smart Climate & Automated Cooling Servo System</h3>
+                        <p class="text-xs text-slate-600">
+                            Reads temperature from a DHT11 sensor and displays readings on an I2C 16x2 LCD. Automatically rotates a 90° servo flap when temperature exceeds 30°C.
+                        </p>
+
+                        <!-- Syntax Highlighted Code Viewer -->
+                        <div class="p-4 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs overflow-x-auto shadow-inner border border-slate-700 leading-relaxed">
+<pre class="text-emerald-400">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+#include &lt;DHT.h&gt;
+#include &lt;Servo.h&gt;
+
+#define DHTPIN 2
+#define DHTTYPE DHT11
+#define SERVO_PIN 9
+
+DHT dht(DHTPIN, DHTTYPE);
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+Servo ventServo;
+
+void setup() {
+  dht.begin();
+  lcd.init();
+  lcd.backlight();
+  ventServo.attach(SERVO_PIN);
+  ventServo.write(0); // Initial Position
+}
+
+void loop() {
+  float temp = dht.readTemperature();
+  lcd.setCursor(0, 0);
+  lcd.print("Temp: "); lcd.print(temp); lcd.print("C");
+  
+  if (temp > 30.0) {
+    ventServo.write(90); // Open cooling flap
+    lcd.setCursor(0, 1); lcd.print("Cooling: ACTIVE ");
+  } else {
+    ventServo.write(0);
+    lcd.setCursor(0, 1); lcd.print("Cooling: NORMAL ");
+  }
+  delay(2000);
+}</pre>
+                        </div>
+                    </div>
+
+                    <!-- Schematic & Hardware Components -->
+                    <div class="lg:col-span-5 aero-card p-6 space-y-6">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-3">
+                            <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                                <i class="fa-solid fa-plug text-teal-600"></i> Assembly & Schematic
+                            </h3>
+                            <span class="text-xs font-semibold text-teal-800">Wokwi Simulator</span>
+                        </div>
+
+                        <!-- Circuit Placeholder Image -->
+                        <div class="relative rounded-xl overflow-hidden border border-sky-300 shadow-md gloss-overlay">
+                            <img src="https://images.unsplash.com/photo-1553406830-ef2513450d76?auto=format&fit=crop&w=600&q=80" 
+                                 alt="Arduino Breadboard Circuit" 
+                                 class="w-full h-48 object-cover"
+                                 onerror="this.src='https://placehold.co/600x400/10B981/FFFFFF?text=Arduino+Breadboard'">
+                            <span class="absolute bottom-2 left-2 bg-slate-900/80 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur">Circuit Draft #01</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <h4 class="font-bold text-slate-800 text-sm">Target Hardware Actuators:</h4>
+                            <ul class="text-xs text-slate-700 space-y-1.5 list-disc list-inside">
+                                <li><strong class="text-slate-900">DHT11 Sensor:</strong> Temperature & Humidity sensing pin D2</li>
+                                <li><strong class="text-slate-900">LiquidCrystal I2C (16x2):</strong> SDA/SCL pins with 0x27 address</li>
+                                <li><strong class="text-slate-900">SG90 Micro Servo:</strong> PWM signal control pin D9</li>
+                                <li><strong class="text-slate-900">Power Supply:</strong> 5V DC via USB Microcontroller header</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. PROJECT GALLERY TAB (pages/karya-proyek.html equivalent) -->
+            <section id="tab-projects" class="tab-content hidden space-y-8 animate-fade-in">
+                <!-- Header -->
+                <div class="aero-glass rounded-2xl p-6 border border-white/80">
+                    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                        <div>
+                            <h2 class="text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                                <i class="fa-solid fa-lightbulb text-amber-500"></i> Project & Collaboration Gallery
+                            </h2>
+                            <p class="text-slate-600 text-sm mt-1">Showcase of software apps, responsive web interfaces, and collaborative school assignments.</p>
+                        </div>
+                        <span class="text-xs font-semibold px-3 py-1.5 bg-blue-100 text-blue-800 rounded-xl">4 Completed Projects</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Project Card 1 -->
+                    <div class="aero-card overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 relative overflow-hidden gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" 
+                                     alt="School Library Web System" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/2563EB/FFFFFF?text=Library+Management+App'">
+                                <span class="absolute top-3 right-3 bg-blue-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">Web App</span>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <h3 class="text-xl font-bold text-slate-900">School Library Management Portal</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    A responsive digital catalog allowing students to search book availability, reserve titles, and track return deadlines. Built with HTML, Tailwind CSS, and local storage state.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-semibold rounded">HTML5</span>
+                                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-semibold rounded">Tailwind CSS</span>
+                                    <span class="px-2.5 py-0.5 bg-sky-100 text-sky-800 text-[11px] font-semibold rounded">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <a href="#projects" onclick="alert('Demo link opened in sandbox preview!')" class="aero-btn-primary px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 flex-1 justify-center">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            </a>
+                            <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="aero-card overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 relative overflow-hidden gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Student Grade Calculator" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/10B981/FFFFFF?text=Grade+Calculator'">
+                                <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">Utility Tool</span>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <h3 class="text-xl font-bold text-slate-900">Academic Grade & GPA Evaluator</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Interactive web utility for Grade XII students to calculate subject weightings, GPA averages, and predict required semester exam scores.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-[11px] font-semibold rounded">JavaScript</span>
+                                    <span class="px-2.5 py-0.5 bg-emerald-100 text-emerald-800 text-[11px] font-semibold rounded">Frutiger UI</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <a href="#projects" onclick="alert('Demo link opened in sandbox preview!')" class="aero-btn-green px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 flex-1 justify-center">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            </a>
+                            <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="aero-card overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 relative overflow-hidden gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Smart Garden IoT Dashboard" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/00A896/FFFFFF?text=IoT+Garden+Dashboard'">
+                                <span class="absolute top-3 right-3 bg-teal-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">IoT Hardware</span>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <h3 class="text-xl font-bold text-slate-900">Smart Irrigation & Moisture Monitor</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Microcontroller project monitoring soil moisture and triggering automatic relay water pumps with real-time status output.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 text-[11px] font-semibold rounded">C/C++</span>
+                                    <span class="px-2.5 py-0.5 bg-teal-100 text-teal-800 text-[11px] font-semibold rounded">Arduino UNO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <a href="#projects" onclick="alert('Circuit schematic and code open!')" class="aero-btn-primary px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 flex-1 justify-center">
+                                <i class="fa-solid fa-microchip"></i> View Schematic
+                            </a>
+                            <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="aero-card overflow-hidden flex flex-col justify-between">
+                        <div>
+                            <div class="h-48 relative overflow-hidden gloss-overlay">
+                                <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
+                                     alt="Network Topo Blueprint" 
+                                     class="w-full h-full object-cover"
+                                     onerror="this.src='https://placehold.co/600x400/4F46E5/FFFFFF?text=Network+Blueprint'">
+                                <span class="absolute top-3 right-3 bg-indigo-600 text-white text-xs font-bold px-2.5 py-1 rounded-full shadow">Networking</span>
+                            </div>
+                            <div class="p-6 space-y-3">
+                                <h3 class="text-xl font-bold text-slate-900">Campus Dual-WAN Network Topology</h3>
+                                <p class="text-xs text-slate-600 leading-relaxed">
+                                    Comprehensive Cisco Packet Tracer blueprint simulating failover routing, security firewalls, and DHCP subnet distribution.
+                                </p>
+                                <div class="flex flex-wrap gap-1.5">
+                                    <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-semibold rounded">Cisco Tracer</span>
+                                    <span class="px-2.5 py-0.5 bg-indigo-100 text-indigo-800 text-[11px] font-semibold rounded">OSPF / NAT</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-6 pb-6 pt-2 flex items-center gap-3">
+                            <a href="#projects" onclick="alert('Network blueprint documentation file!')" class="aero-btn-green px-4 py-2 rounded-lg text-xs font-bold flex items-center gap-1.5 flex-1 justify-center">
+                                <i class="fa-solid fa-file-pdf"></i> Download Blueprint
+                            </a>
+                            <a href="https://github.com" target="_blank" class="px-4 py-2 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 text-xs font-bold flex items-center gap-1.5 border border-slate-300 transition">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. CONTACT TAB (pages/kontak.html equivalent) -->
+            <section id="tab-contact" class="tab-content hidden space-y-8 animate-fade-in">
+                <!-- Header Card -->
+                <div class="aero-glass rounded-2xl p-6 border border-white/80">
+                    <h2 class="text-3xl font-extrabold text-slate-900 flex items-center gap-3">
+                        <i class="fa-solid fa-paper-plane text-blue-600"></i> Contact & Feedback Form
+                    </h2>
+                    <p class="text-slate-600 text-sm mt-1">Send a direct message regarding school projects, collaborations, or general inquiries.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Contact Form Card -->
+                    <div class="lg:col-span-7 aero-card p-6 space-y-6">
+                        <h3 class="text-xl font-bold text-slate-800 border-b border-sky-200 pb-3 flex items-center gap-2">
+                            <i class="fa-solid fa-pen-to-square text-teal-600"></i> Send a Message
+                        </h3>
+
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <!-- Sender Name -->
+                            <div>
+                                <label for="senderName" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                                    Sender Name <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" id="senderName" required 
+                                       placeholder="e.g. Budi Santoso" 
+                                       class="w-full px-4 py-2.5 rounded-xl border border-sky-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition">
+                            </div>
+
+                            <!-- Email Address -->
+                            <div>
+                                <label for="senderEmail" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                                    Email Address <span class="text-red-500">*</span>
+                                </label>
+                                <input type="email" id="senderEmail" required 
+                                       placeholder="e.g. budi@example.com" 
+                                       class="w-full px-4 py-2.5 rounded-xl border border-sky-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition">
+                            </div>
+
+                            <!-- Message Category dropdown -->
+                            <div>
+                                <label for="messageCategory" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                                    Message Category <span class="text-red-500">*</span>
+                                </label>
+                                <select id="messageCategory" required class="w-full px-4 py-2.5 rounded-xl border border-sky-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition">
+                                    <option value="" disabled selected>Select a category...</option>
+                                    <option value="Question">General Inquiry / Question</option>
+                                    <option value="Collaboration">Project Collaboration</option>
+                                    <option value="Feedback">Feedback / Suggestions</option>
+                                </select>
+                            </div>
+
+                            <!-- Text Message -->
+                            <div>
+                                <label for="messageText" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                                    Text Message <span class="text-red-500">*</span>
+                                </label>
+                                <textarea id="messageText" rows="4" required 
+                                          placeholder="Type your feedback or inquiry here..." 
+                                          class="w-full px-4 py-2.5 rounded-xl border border-sky-300 bg-white/80 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm transition resize-none"></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="aero-btn-primary w-full py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 shadow-lg">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Alternative Contact Info Card -->
+                    <div class="lg:col-span-5 aero-card p-6 space-y-6 flex flex-col justify-between">
+                        <div class="space-y-6">
+                            <h3 class="text-xl font-bold text-slate-800 border-b border-sky-200 pb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-circle-info text-blue-600"></i> Alternative Contact
+                            </h3>
+
+                            <div class="space-y-4">
+                                <!-- Email Info -->
+                                <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-sky-50/80 border border-sky-200">
+                                    <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center text-lg flex-shrink-0 gloss-overlay">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">School Email Address</h4>
+                                        <p class="text-xs text-blue-800 font-semibold mt-0.5">floretha.aurora5@sman2.belajar.id</p>
+                                        <p class="text-[11px] text-slate-500">Official Grade XII student mailbox</p>
+                                    </div>
+                                </div>
+
+                                <!-- City Location -->
+                                <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-emerald-50/80 border border-emerald-200">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center text-lg flex-shrink-0 gloss-overlay">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">City & Location</h4>
+                                        <p class="text-xs text-slate-700 mt-0.5">Mojokerto</p>
+                                        <p class="text-[11px] text-slate-500">East Java, Indonesia</p>
+                                    </div>
+                                </div>
+
+                                <!-- Lab Hours -->
+                                <div class="flex items-start gap-3.5 p-3.5 rounded-xl bg-teal-50/80 border border-teal-200">
+                                    <div class="w-10 h-10 rounded-lg bg-teal-600 text-white flex items-center justify-center text-lg flex-shrink-0 gloss-overlay">
+                                        <i class="fa-solid fa-clock"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Lab Availability</h4>
+                                        <p class="text-xs text-slate-700 mt-0.5">Mon - Fri: 07:00 AM - 03:30 PM</p>
+                                        <p class="text-[11px] text-slate-500">Computer Science Dept. Room 204</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Frutiger OS Status Widget -->
+                        <div class="p-4 rounded-xl bg-gradient-to-r from-blue-600 to-teal-600 text-white text-xs font-semibold shadow-inner flex items-center justify-between">
+                            <span class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-300 animate-ping"></span>
+                                Messaging Server Online
+                            </span>
+                            <span class="opacity-80">v2.0.26</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER (Windows Aero Desktop Style) -->
+        <footer class="mt-8 aero-glass rounded-2xl p-6 border border-white/80 shadow-xl">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-700 font-medium">
+                <!-- Copyright info -->
+                <div class="flex items-center gap-2 text-center sm:text-left">
+                    <div class="w-6 h-6 rounded-md bg-blue-600 text-white flex items-center justify-center font-bold text-[10px]">
+                        <i class="fa-solid fa-copyright"></i>
+                    </div>
+                    <span>
+                        &copy; 2026 <strong>Floretha Aurora Levina</strong>. Class XII RPL Portfolio Task. All Rights Reserved.
+                    </span>
+                </div>
+
+                <!-- Social Media & GitHub Links -->
+                <div class="flex items-center space-x-3">
+                    <a href="https://github.com" target="_blank" title="GitHub Profile" class="w-9 h-9 rounded-xl bg-white/80 hover:bg-blue-600 hover:text-white border border-sky-300 flex items-center justify-center text-slate-700 transition shadow-sm gloss-overlay">
+                        <i class="fa-brands fa-github text-base"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" title="LinkedIn Profile" class="w-9 h-9 rounded-xl bg-white/80 hover:bg-blue-600 hover:text-white border border-sky-300 flex items-center justify-center text-slate-700 transition shadow-sm gloss-overlay">
+                        <i class="fa-brands fa-linkedin-in text-base"></i>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" title="Instagram Profile" class="w-9 h-9 rounded-xl bg-white/80 hover:bg-pink-600 hover:text-white border border-sky-300 flex items-center justify-center text-slate-700 transition shadow-sm gloss-overlay">
+                        <i class="fa-brands fa-instagram text-base"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- SUCCESS MODAL (Replaces standard alert) -->
+    <div id="successModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center hidden p-4">
+        <div class="aero-card max-w-md w-full p-6 space-y-4 shadow-2xl border-2 border-white gloss-overlay animate-bounce-short">
+            <div class="w-14 h-14 rounded-full bg-emerald-500 text-white flex items-center justify-center text-2xl mx-auto shadow-lg">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="text-center space-y-2">
+                <h3 class="text-xl font-extrabold text-slate-900">Message Delivered!</h3>
+                <p id="modalMessageText" class="text-xs text-slate-600 leading-relaxed"></p>
+            </div>
+            <button onclick="closeModal()" class="aero-btn-green w-full py-2.5 rounded-xl font-bold text-xs shadow">
+                OK / Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT NAVIGATION & CONTROLS -->
+    <script>
+        const tabs = ['home', 'about', 'networks', 'iot', 'projects', 'contact'];
+
+        function switchTab(tabName) {
+            // Hide all tab content sections
+            tabs.forEach(t => {
+                const section = document.getElementById(`tab-${t}`);
+                const navBtn = document.getElementById(`nav-${t}`);
+                
+                if (section) section.classList.add('hidden');
+                if (navBtn) {
+                    navBtn.classList.remove('active');
+                    navBtn.classList.add('text-slate-700');
+                }
+            });
+
+            // Show selected tab content section
+            const targetSection = document.getElementById(`tab-${tabName}`);
+            const targetNavBtn = document.getElementById(`nav-${tabName}`);
+
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            if (targetNavBtn) {
+                targetNavBtn.classList.add('active');
+                targetNavBtn.classList.remove('text-slate-700');
+            }
+
+            // Update URL hash without reload
+            window.location.hash = tabName;
+        }
+
+        // Handle initial hash routing on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const currentHash = window.location.hash.replace('#', '');
+            if (tabs.includes(currentHash)) {
+                switchTab(currentHash);
+            } else {
+                switchTab('home');
+            }
+        });
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('senderName').value;
+            const email = document.getElementById('senderEmail').value;
+            const category = document.getElementById('messageCategory').value;
+
+            const modalText = `Thank you, ${name}! Your ${category.toLowerCase()} message from ${email} has been sent successfully to Alex Pratama.`;
+            document.getElementById('modalMessageText').innerText = modalText;
+            document.getElementById('successModal').classList.remove('hidden');
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+        }
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(() => {});
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
